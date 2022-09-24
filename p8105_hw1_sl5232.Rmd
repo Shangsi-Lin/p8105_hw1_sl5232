@@ -34,10 +34,29 @@ print(flipper_vs_bill_scatterplot + labs(y = "flipper length(mm)", x = "bill len
 ggsave("flipper_vs_bill_scatterplot.pdf")
 ```
 
+# Problem 2
+## Create a data frame of interest
 
-
-```{r}
-
+```{r chunk_dataframe}
+problem2_df = tibble(
+  random_sample = rnorm(10, mean = 0, sd = 1),
+  logical_vector = random_sample > 0,
+  character_vector = c("A","B","C","D","E","F","G","H","I","J"),
+  factor_vector = factor(c("INTRO", "BEGINNER", "INTERMEDIATE", "INTRO", "INTRO", "BEGINNER", "BEGINNER", "INTERMEDIATE", "INTERMEDIATE", "INTERMEDIATE"))
+)
 ```
 
+## Try to take a mean of each variable in the data frame created above
 
+```{r chunk_means}
+random_sample_mean = mean(pull(problem2_df,var = random_sample))
+random_sample_mean
+logical_vector_mean = mean(pull(problem2_df,var = logical_vector))
+logical_vector_mean
+character_vector_mean = mean(pull(problem2_df,var = character_vector))
+character_vector_mean
+factor_vector_mean = mean(pull(problem2_df,var = factor_vector))
+factor_vector_mean
+```
+
+The _mean_ function works on random sample and logical vectors, however it doesn'r work on character vectors and factor vectors.
