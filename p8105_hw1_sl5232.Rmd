@@ -13,10 +13,25 @@ library(tidyverse)
 data("penguins", package = "palmerpenguins")
 ```
 
+## Short description of the penguin dataset
+The penguins dataset includes information about `r names(penguins)` of the individuals of interest.
 
+The row size of the penguins dataset is `r nrow(penguins)` and the column size of the dataset is `r ncol(penguins)`.
 
-```{r}
+The mean flipper length of the penguins dataset is `r mean(pull(penguins,flipper_length_mm), trim = 0, na.rm = TRUE)`
 
+## Making and saving a scatterplot of flipper length(y) vs. bill length(x), different colors represent different species.
+```{r chunk_flipper_vs_bill_scatterplot}
+flipper_vs_bill_scatterplot_df =
+  tibble(
+    x = penguins$bill_length_mm,
+    y = penguins$flipper_length_mm,
+    species = penguins$species
+  )
+
+flipper_vs_bill_scatterplot = ggplot(flipper_vs_bill_scatterplot_df, aes(x,  y, color = species)) + geom_point()
+print(flipper_vs_bill_scatterplot + labs(y = "flipper length(mm)", x = "bill length (mm)"))
+ggsave("flipper_vs_bill_scatterplot.pdf")
 ```
 
 
