@@ -1,0 +1,28 @@
+---
+title: "p8105_hw1_sl5232"
+author: "Shangsi Lin"
+date: 2022-09-23
+output: github_document
+---
+
+# Problem 1
+## Load data and tidyverse
+
+```{r chunk_setup}
+library(tidyverse)
+data("penguins", package = "palmerpenguins")
+```
+
+
+
+```{r}
+summary(cars)
+```
+
+
+
+```{r}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
